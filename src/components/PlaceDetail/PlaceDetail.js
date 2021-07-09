@@ -6,7 +6,7 @@ const PlaceDetail = props => {
     return (
         <Modal>
             <View>
-                <Image source={props.place.image} style={{
+                <Image source={{ uri: props.place.image }} style={{
                     width: "100%",
                     height: 300
                 }} />
@@ -15,14 +15,17 @@ const PlaceDetail = props => {
                     fontSize: 40
                 }}>{props.place.value}</Text>
                 <View style={{ alignItems: "center" }}>
-                    <TouchableOpacity onPress={
-                        () => {
-                            props.handleDeleteItem(props.place.key);
-                        }
-                    }>
+                    <TouchableOpacity
+                        onPress={
+                            () => {
+                                props.handleDeleteItem(props.place.key);
+                            }
+                        }>
                         <Icon name="trash" size={60} color="red" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => props.handleHideModal()}>
+                    <TouchableOpacity
+                        onPress={() => props.handleHideModal()}
+                    >
                         <Icon name="times-circle" size={60} />
                     </TouchableOpacity>
                 </View>
